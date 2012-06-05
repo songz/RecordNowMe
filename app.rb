@@ -28,7 +28,7 @@ end
 post '/download' do
   archiveId = params['archiveId']
   printa archiveId
-  otArchive = OTSDK.get_archive_manifest('9f39fcf0-303e-4b52-8a91-5f06800404d4', 'moderator_token')
+  otArchive = OTSDK.get_archive_manifest(archiveId, 'moderator_token')
   otVideoResource = otArchive.resources[0]
   videoId = otVideoResource.getId()
   url = otArchive.downloadArchiveURL(videoId, 'moderator_token')
