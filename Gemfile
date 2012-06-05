@@ -1,5 +1,6 @@
-source :rubygems
+source "http://rubygems.org"
 
 gem 'sinatra'
-gem 'thin', '1.2.7'
-
+gem 'thin'
+gem 'opentok', :git=>"https://github.com/songz/Opentok-Ruby-SDK"
+gem 'json'

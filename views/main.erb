@@ -1,10 +1,55 @@
 <!DOCTYPE HTML>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title></title>
-</head>
-<body>
-  <%= @name %>
-</body>
+  <head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="http://bootswatch.com/amelia/bootstrap.min.css" />
+    <style type="text/css">
+      .container{
+        text-align:center;
+        margin:auto;
+      }
+      #downloadButton{
+        display:none;
+        margin:10px;
+      }
+    </style>
+
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <h1>Record Your Video Now</h1>
+      </div>
+
+      <div class="row">
+        <div id="rElement"></div>
+      </div>
+
+      <div class="row">
+        <div class="span4 offset4">
+          <h1>
+            <a class="btn btn-large" id="downloadButton" href="#" disabled>Loading...</a>
+          </h1>
+        </div>
+      </div>
+    </div>
+
+
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script src="http://staging.tokbox.com/v0.91/js/TB.min.js"></script>
+    <script type="text/javascript">
+      var rManager = TB.initRecorderManager('1127');
+      var recorder = rManager.displayRecorder('moderator_token', 'rElement');
+      recorder.addEventListener('archiveSaved', function(event){
+        archiveId = event.archives[0].archiveId;
+        $('#downloadButton').attr('archiveId', archiveId).fadeIn();
+        $.post('/download', {archiveId:archiveId}, function(response){
+          $('#downloadButton').attr('href', response).removeAttr('disabled').text('Download Now');
+        });
+      });
+    </script>
+
+
+  </body>
 </html>
