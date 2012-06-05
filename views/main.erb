@@ -41,12 +41,19 @@
     <script type="text/javascript">
       var rManager = TB.initRecorderManager('1127');
       var recorder = rManager.displayRecorder('moderator_token', 'rElement');
+      function getDownloadUrl(aid){
+        $.post('/download', {archiveId:aid}, function(response){
+          if(response.split('error').length < 1){
+            $('#downloadButton').attr('href', response).removeAttr('disabled').text('Download Now');
+          }else{
+            setTimeout(getDownloadUrl(aid), 1000);
+          }
+        });
+      }
       recorder.addEventListener('archiveSaved', function(event){
         archiveId = event.archives[0].archiveId;
         $('#downloadButton').attr('archiveId', archiveId).fadeIn();
-        $.post('/download', {archiveId:archiveId}, function(response){
-          $('#downloadButton').attr('href', response).removeAttr('disabled').text('Download Now');
-        });
+        getDownloadUrl(archiveId);
       });
     </script>
 
