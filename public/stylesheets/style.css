@@ -1,1 +1,24 @@
-body{}
+.container{
+  text-align:center;
+  margin:auto;
+  position:fixed;
+  scroll:auto;
+  top:0px;
+  bottom:0px;
+  left:0px;
+  right:0px;
+  background-image:url('http://subtlepatterns.com/patterns/burried.png');
+  font-family:'lobster';
+}
+#downloadButton{
+  display:none;
+  margin:10px;
+}
+
+#logo{
+  font-size:120px;
+  line-height:130%;
+}
+body{
+  background-image:url('http://subtlepatterns.com/patterns/burried.png');
+}
