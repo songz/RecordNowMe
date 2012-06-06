@@ -52,7 +52,7 @@
           if(response.split('error').length > 1){
             // Error Message was found
             console.log("SETTING TIMEOUT!");
-            setTimeout(getDownloadUrl(archiveId), 5000);
+            setTimeout(getDownloadUrl(archiveId), 2000);
           }else{
             $('#downloadButton').attr('href', response).removeAttr('disabled').text('Download Now');
           }
