@@ -22,3 +22,16 @@
 body{
   background-image:url('http://subtlepatterns.com/patterns/burried.png');
 }
+
+#instructions{
+  text-align:left;
+  font-family:'cabin';
+  font-size: 24px;
+  margin-top:20px;
+  margin-bottom:20px;
+}
+#instructions li{
+  margin-bottom:20px;
+  list-style-type:none;
+  line-height:120%;
+}
