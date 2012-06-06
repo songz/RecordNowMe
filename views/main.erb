@@ -41,19 +41,27 @@
     <script type="text/javascript">
       var rManager = TB.initRecorderManager('1127');
       var recorder = rManager.displayRecorder('moderator_token', 'rElement');
-      function getDownloadUrl(aid){
+      var archiveId;
+      function getDownloadUrl(aid, responseHandler){
         $.post('/download', {archiveId:aid}, function(response){
-          if(response.split('error').length < 1){
-            $('#downloadButton').attr('href', response).removeAttr('disabled').text('Download Now');
-          }else{
-            setTimeout(getDownloadUrl(aid), 1000);
-          }
+            responseHandler(response);
         });
-      }
+      };
+      function urlhandler(response){
+          console.log(response.split('error').length);
+          if(response.split('error').length > 1){
+            // Error Message was found
+            console.log("SETTING TIMEOUT!");
+            setTimeout(getDownloadUrl(archiveId), 5000);
+          }else{
+            $('#downloadButton').attr('href', response).removeAttr('disabled').text('Download Now');
+          }
+      };
+
       recorder.addEventListener('archiveSaved', function(event){
         archiveId = event.archives[0].archiveId;
         $('#downloadButton').attr('archiveId', archiveId).fadeIn();
-        getDownloadUrl(archiveId);
+        getDownloadUrl(archiveId, urlhandler);
       });
     </script>
 
