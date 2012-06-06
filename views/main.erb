@@ -42,13 +42,8 @@
       var rManager = TB.initRecorderManager('1127');
       var recorder = rManager.displayRecorder('moderator_token', 'rElement');
       var archiveId;
-      function getDownloadUrl(aid, responseHandler){
-        $.post('/download', {archiveId:aid}, function(response){
-            responseHandler(response);
-        });
-      };
-      function urlhandler(response){
-          console.log(response.split('error').length);
+
+      var urlhandler = function(response){
           if(response.split('error').length > 1){
             // Error Message was found
             console.log("SETTING TIMEOUT!");
@@ -58,10 +53,16 @@
           }
       };
 
+      var getDownloadUrl = function(aid){
+        $.post('/download', {archiveId:aid}, function(response){
+            urlhandler(response);
+        });
+      };
+
       recorder.addEventListener('archiveSaved', function(event){
         archiveId = event.archives[0].archiveId;
         $('#downloadButton').attr('archiveId', archiveId).fadeIn();
-        getDownloadUrl(archiveId, urlhandler);
+        getDownloadUrl(archiveId);
       });
     </script>
 
