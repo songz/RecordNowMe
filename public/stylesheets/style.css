@@ -11,9 +11,10 @@
 }
 
 #logo{
-  font-size:120px;
-  line-height:130%;
+  font-size:100px;
+  line-height:120%;
   color:#999;
+  text-shadow: 5px 5px 5px #000;
 }
 body{
   background-image:url('http://subtlepatterns.com/patterns/burried.png');

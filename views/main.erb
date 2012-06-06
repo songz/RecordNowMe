@@ -21,7 +21,7 @@
           <ul>
             <li><span class="step">1</span> Record a video</li>
           	<li><span class="step">2</span> Cick 'Save'</li>
-          	<li><span class="step">3</span> Download it</li>
+          	<li><span class="step">3</span> Download</li>
           </ul>
 
         </div>
@@ -45,7 +45,7 @@
     <script src="http://staging.tokbox.com/v0.91/js/TB.min.js"></script>
     <script type="text/javascript">
       var rManager = TB.initRecorderManager('1127');
-      var recorder = rManager.displayRecorder('moderator_token', 'rElement');
+      var recorder = rManager.displayRecorder('moderator_token', 'rElement', {width:360, height:301});
       var archiveId;
 
       var urlhandler = function(response){
