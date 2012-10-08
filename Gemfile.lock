@@ -4,7 +4,7 @@ GEM
     daemons (1.1.9)
     eventmachine (0.12.10)
     json (1.7.4)
-    opentok (0.0.72)
+    opentok (0.0.91)
     rack (1.4.1)
     rack-protection (1.2.0)
       rack
