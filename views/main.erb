@@ -7,8 +7,9 @@
     <link href='http://fonts.googleapis.com/css?family=Cabin' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="/stylesheets/bootstrap.css" />
     <link rel="stylesheet" href="/stylesheets/style.css" />
-    <style type="text/css"></style>
 
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script src="http://staging.tokbox.com/v0.91/js/TB.min.js"></script>
   </head>
   <body>
     <div class="container">
@@ -38,20 +39,23 @@
     </div>
 
 
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-    <script src="http://staging.tokbox.com/v0.91/js/TB.min.js"></script>
     <script type="text/javascript">
-      var rManager = TB.initRecorderManager('1127');
-      var recorder = rManager.displayRecorder('moderator_token', 'rElement', {width:360, height:301});
+      var rManager = TB.initRecorderManager("<%= @key %>"); // Pass in your API KEY, create a Manager
+      var recorder = rManager.displayRecorder('<%= @token %>', 'rElement', {width:360, height:301}); 
+        // Pass in a valid token, and your recorder will start
       var archiveId;
+
+      TB.setLogLevel( TB.DEBUG ); // Prints out logging messages in console
 
       var urlhandler = function(response){
           if(response.split('error').length > 1){
-            // Error Message was found
+            console.log(response)
+            // Error Message was found, archive not ready
             console.log("SETTING TIMEOUT!");
             setTimeout(getDownloadUrl(archiveId), 2000);
           }else{
             $('#downloadButton').attr('href', response).removeAttr('disabled').text('Download Now');
+            console.log(response);
           }
       };
 
