@@ -32,23 +32,16 @@ post '/download' do
 
   # First, get an archive Manifest, which contains details about the archive
   otArchive = OTSDK.get_archive_manifest(archiveId, token)
-  p "archive manifest"
-  ap otArchive
 
   # Each archive resource is a video. Since we are using standalone Recorder,
   # There will only be one video in the first index
   otVideoResource = otArchive.resources[0]
-  p "video resource"
-  ap otVideoResource
 
   # From the resource, get the videoID
   videoId = otVideoResource.getId()
-  p "get ID"
-  ap videoId
 
   # With the VideoID, we can now retrieve the download URL
-  url = otArchive.downloadArchiveURL(videoId, token)
-  p url
+  response = otArchive.downloadArchiveURL(videoId, token)
   content_type :json
-  return url.to_json
+  return response.to_json
 end

@@ -55,11 +55,12 @@
             setTimeout(getDownloadUrl(archiveId), 2000);
           }else{
             $('#downloadButton').attr('href', response).removeAttr('disabled').text('Download Now');
-            console.log(response);
+            console.log("URL: "+response);
           }
       };
 
       var getDownloadUrl = function(aid){
+        console.log( "Sending archive id to server to retrieve download URL: "+aid );
         $.post('/download', {archiveId:aid}, function(response){
             urlhandler(response);
         });
