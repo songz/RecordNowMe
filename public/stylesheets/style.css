@@ -3,7 +3,7 @@
   scroll:auto;
   background-image:url('http://subtlepatterns.com/patterns/burried.png');
   font-family:'lobster';
-  color:#999;
+  color:#d5d5d5;
 }
 #downloadButton{
   display:none;
@@ -13,9 +13,9 @@
 #logo{
   font-size:100px;
   line-height:120%;
-  color:#999;
-  text-shadow: 5px 5px 5px #000;
+  text-shadow: 2px 5px 5px #aaa;
   margin-top:25px;
+  color:#e5e5e5;
 }
 body{
   background-image:url('http://subtlepatterns.com/patterns/burried.png');
@@ -44,4 +44,5 @@ body{
   margin:0;
   border-radius:50%;
   background-color:#555;
+  padding-top:2px;
 }
