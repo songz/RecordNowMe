@@ -5,7 +5,7 @@ GEM
     daemons (1.1.9)
     eventmachine (0.12.10)
     json (1.7.4)
-    opentok (0.0.91)
+    opentok (0.0.92)
     rack (1.4.1)
     rack-protection (1.2.0)
       rack
@@ -25,6 +25,6 @@ PLATFORMS
 DEPENDENCIES
   awesome_print
   json
-  opentok
+  opentok (= 0.0.92)
   sinatra
   thin
