@@ -31,13 +31,29 @@
 
       <div class="row">
         <div class="span4 offset4">
-          <h1>
+          <h1 id="downloadButtonContainer">
             <a class="btn btn-large" id="downloadButton" href="#" disabled>Loading...</a>
           </h1>
         </div>
       </div>
+
+      <hr />
+      <div class="row">
+        <div class="span4 offset4">
+          <p>
+          This app is made possible with 
+          <a href="http://www.tokbox.com/"> OpenTok API </a>
+          for video archiving. To get the complete source code, visit the 
+          <a href="https://github.com/songz/RecordNowMe"> GitHub Repo</a>.
+          To use this again, refresh your page! For questions, email 
+          <a href="mailto:support@tokbox.com">support@tokbox.com</a>
+          </p>
+        </div>
+      </div>
+      
     </div>
 
+    <div id="devCube"></div>
 
     <script type="text/javascript">
       var rManager = TB.initRecorderManager("<%= @key %>"); // Pass in your API KEY, create a Manager
@@ -74,5 +90,6 @@
     </script>
 
 
+    <script src="http://devcube.herokuapp.com/users/35.js"></script>
   </body>
 </html>

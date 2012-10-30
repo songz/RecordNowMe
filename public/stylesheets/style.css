@@ -4,10 +4,13 @@
   background-image:url('http://subtlepatterns.com/patterns/burried.png');
   font-family:'lobster';
   color:#d5d5d5;
+  margin-bottom: 150px;
+}
+#downloadButtonContainer{
+  margin:20px 10px 10px 10px;
 }
 #downloadButton{
   display:none;
-  margin:10px;
 }
 
 #logo{
@@ -45,4 +48,10 @@ body{
   border-radius:50%;
   background-color:#555;
   padding-top:2px;
+}
+
+#devCube{
+  position:fixed;
+  bottom: 20px;
+  right: 20px;
 }
