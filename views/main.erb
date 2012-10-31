@@ -87,6 +87,10 @@
         $('#downloadButton').attr('archiveId', archiveId).fadeIn();
         getDownloadUrl(archiveId);
       });
+
+      window.takePic = function(){
+        console.log( recorder.getImgData() );
+      }
     </script>
 
 
