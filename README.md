@@ -11,6 +11,8 @@ RecordNow.me
 First, make sure you have the necessary ruby gems
 `bundle install`
 
+Then replace the key and secret in `app.rb` with your credentials
+
 Next, run the ruby file. 
 `ruby app.rb` or `shotgun app.rb`  
 
